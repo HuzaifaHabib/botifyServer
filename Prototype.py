@@ -97,19 +97,18 @@ def extract(text):
                     #print(a)
                     u_items.append(a)
                     temp_items = []
-                    for u_entity in quantity_elements:
+            for u_entity in quantity_elements:
                         for num in numbers:
                             if num==u_entity:
                                 nums=u_entity
                             #nums=nums+" " 
                             #print(nums)
-                    if nums != "":
-                        nums=w2n.word_to_num(nums)
-                        quantity.append(nums)
-                        #print(quantity)
-                        temp_items=[]
-                    nums=''
-                    #print(u_items,"Elements are:  ",quantity_elements,"\n quantity: ",quantity)
+                                if nums != "":
+                                    nums=w2n.word_to_num(nums)
+                                    quantity.append(nums)
+                                    #print(quantity)
+                                    temp_items=[]
+                                nums=''
             # if len(quantity_elements) > 0:
             #     for i in quantity_elements:
             #         num = w2n.word_to_num(i)
@@ -118,7 +117,8 @@ def extract(text):
 
     finalEntities,quantities = finder(enitities,words)
 
-    if ii == 0 and ee == 0:
+    # if ii == 0 and ee == 0:
+    if len(finalEntities)<1 and len(quantities)< 1 and len(intentsInMsg)<1:
         # print("\nBot: Sorry I didn't understand your intent")
         return ("Sorry I couldnt understand you, You can try rephrasing your words ")
 
